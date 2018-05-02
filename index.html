@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no, email=no, address=no">
+	<title>漢字わからん</title>
+	<link rel="stylesheet" href="./resource/style.css">
+	<!-- 途中で虚無が襲い掛かってきて作るのやめた -->
+</head>
+
+<body>
+	<header>
+		<p>
+			<a href="./" id="sitename">漢字わからん</a>
+		</p>
+		<p id="subtitle">あの漢字……どんな形だっけ？</p>
+	</header>
+
+	<main>
+		<div id="wrapper">
+			<input type="text" id="wakaran" placeholder="わからない漢字を入力">
+			<div id="kanji">
+				<span class="char">色</span>
+				<span class="char">々</span>
+				<span class="char">と</span>
+				<span class="char">分</span>
+				<span class="char">か</span>
+				<span class="char">ら</span>
+				<span class="char">ん</span>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<p>漢字わからん - 途中でやる気失せた</p>
+		<p>&copy; 2018
+			<a href="https://nanairo.jyn.jp/about">HimaJyun</a>
+		</p>
+	</footer>
+
+	<script>
+		{
+			"use strict";
+			const wakaran = document.getElementById("wakaran");
+			const kanji = document.getElementById("kanji");
+			wakaran.addEventListener("keyup", changeText);
+			wakaran.addEventListener("change", changeText);
+
+			function changeText() {
+				removeAllChild(kanji);
+				for (let char of wakaran.value) {
+					kanji.appendChild(createSpan(char, "char"));
+				}
+			}
+
+			function removeAllChild(dom) {
+				while (dom.lastChild) {
+					dom.removeChild(dom.lastChild);
+				}
+				return dom;
+			}
+
+			function createSpan(text, clazz = null) {
+				const span = document.createElement("span");
+				span.appendChild(document.createTextNode(text));
+
+				if (clazz != null) {
+					span.classList.add(clazz);
+				}
+				return span;
+			}
+		}	
+	</script>
+</body>
+
+</html>

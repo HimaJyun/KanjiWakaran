@@ -1,0 +1,74 @@
+@charset "utf-8";
+@import "_reset.scss";
+
+// footerを最下部に固定
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+footer {
+	margin-top: auto;
+}
+
+// ヘッダーとフッターの中央ぞろえ
+header,footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+// サイズ調整
+header {
+	padding-top: 0.5rem;
+	padding-bottom: 2rem;
+}
+
+footer {
+	padding-top: 2rem;
+	padding-bottom: 0.5rem;
+}
+
+main {
+	align-self: center;
+	max-width: 100%;
+}
+
+#wrapper {
+	width: 32rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+// 過剰装飾
+#sitename {
+	color: $font-color;
+	text-decoration: none;
+
+	font-size: 2.8rem;
+	font-weight: bold;
+}
+
+article,aside {
+	padding: 0 1rem;
+	@include only-sp {
+		font-size: 1.6rem;
+	}// 要るかな？
+}
+
+#kanji {
+	display: flex;
+	flex-direction: column;
+	width: 32rem;
+	margin: 5rem 0;
+}
+
+#kanji .char {
+	font-size: 32rem;
+}
+
+// 過剰装飾-footer
+footer a:not(:hover):visited {
+	color: $anchor-color;
+}
